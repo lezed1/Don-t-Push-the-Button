@@ -24,12 +24,11 @@ io.on('connection', function(socket) {
 	users += 1;
 	if (users > mostUsers) {
 		mostUsers = users;
-		io.emit('mostUsers', users);
 	}
 	io.emit('time', seconds);
 	io.emit('highscore', highscore);
 	io.emit('users', users);
-	io.emit('mostUsers', users);
+	io.emit('mostUsers', mostUsers);
 	io.emit('pushCount', pushCount);
 	console.log('User connected. '+users.toString()+" users connected.");
 	socket.on('disconnect', function() {
